@@ -1,91 +1,131 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter&family=Righteous&display=swap");
 
 :root {
-	--bg-color: #2b2b2b;
-	--ff: "Inter", sans-serif;
-	--primary-color: #dadadaff;
-	--secondary-color: #cc0000;
+	--bg-color: hsl(0, 0%, 17%);
+	--fg-p-color: hsl(0, 0%, 85%);
+	--fg-s-color: hsl(0, 100%, 40%);
+	--fg-s-shadow: hsl(0, 100%, 50%);
+
+	--ff-p: "Inter", sans-serif;
+
+	--dp: drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4));
 }
 
 body {
+	padding: 5rem 0;
+	font-family: var(--ff-p);
+	background-color: var(--bg-color);
+	color: var(--fg-p-color);
+	overflow: hidden;
+}
+
+/*------------------------------------------------------------------------------------*/
+
+.hero-wrapper {
+	/* border: 1px solid green; */
+	height: calc(100vh - 10rem);
 	display: grid;
-	box-sizing: border-box;
-	grid-template-rows: 1fr 10fr 1fr;
 	grid-template-columns: repeat(2, 1fr);
 	gap: 20px;
-	height: 100vh;
-	background-color: var(--bg-color);
-	color: var(--primary-color);
-	font-family: var(--ff);
 }
 
 /*------------------------------------------------------------------------------------*/
 
-.hero-info {
-	/* border: 1px solid blue; */
-	grid-area: 2 / 1 / 3 / 2;
+.hero-wrapper .left {
+	margin: 5rem;
 	display: flex;
 	flex-direction: column;
-	justify-content: center;
+}
+
+/*------------------------------------------------------------------------------------*/
+
+.left .logo {
+	display: flex;
+	flex-direction: column;
 	align-items: flex-start;
-	margin: 3rem;
+	width: fit-content;
+	margin-bottom: 2.5rem;
 }
 
-.hero-info .logo {
+.logo .name {
+	height: 3rem;
+	filter: var(--dp);
+	margin-bottom: 0.5rem;
+}
+
+.banner {
+	align-self: flex-end;
+	filter: var(--dp);
+}
+
+.banner .layer-1 {
 	display: flex;
-	flex-direction: column;
-	align-items: flex-end;
+	align-items: center;
+	justify-content: flex-end;
 }
 
-.logo h1 {
-	font-family: "Righteous", cursive;
-	text-transform: uppercase;
-	font-size: 3rem;
-	margin-bottom: 0.25rem;
+.layer-1 .banner-tail {
+	height: 1.5rem;
 }
 
-.logo img {
-	margin-bottom: 3rem;
-	right: 0;
-	width: 90%;
+.layer-1 .slogan {
+	font-style: italic;
+	font-size: 1rem;
+	background-color: var(--fg-s-color);
+	padding: 0.25rem 0.5rem;
+	text-shadow: 1px 1px 0.5px rgb(0 0 0 / 0.4);
+	border-radius: 0 1px 2px 0;
 }
 
-.hero-info .buttons {
-	/* border: 1px solid red; */
-	margin-top: 3rem;
-	width: 100%;
+.banner .layer-2 {
+	display: flex;
+	justify-content: flex-end;
+	align-items: flex-start;
 }
 
-.buttons a {
-	margin-right: 2rem;
-	text-decoration: none;
-	background-color: var(--secondary-color);
-	color: var(--primary-color);
-	padding: 0.5rem 1rem;
-	border-radius: 0.125rem;
-	box-shadow: 0 0.5rem 10px #000;
-	text-shadow: none;
-	/* transition: text-shadow scale 0.2s; */
-}
-
-.buttons a:hover {
-	text-shadow: 0 0 0.5vw #f00;
-	transition: text-shadow 0.2s;
+.layer-2 .banner-fold {
+	height: 0.75rem;
 }
 
 /*------------------------------------------------------------------------------------*/
 
-.hero-image {
-	/* border: 1px solid green; */
-	grid-area: 2 / 2 / 3 / 3;
+.left .info {
+	margin-bottom: 2rem;
+}
+
+/*------------------------------------------------------------------------------------*/
+
+.left .buttons {
+	/* border: 1px solid blue; */
+	width: 66%;
+}
+
+.buttons .button {
+	height: 100%;
+	padding: 0.5rem;
+	background-color: var(--fg-s-color);
+	color: var(--fg-p-color);
+	border: none;
+	font-size: 1rem;
+	text-decoration: none;
+	border-radius: 5%;
+	filter: var(--dp);
+}
+
+.buttons .button:hover {
+	cursor: pointer;
+	color: #fff;
+	text-shadow: var(--fg-s-shadow);
+}
+
+/*------------------------------------------------------------------------------------*/
+
+.hero-wrapper .right {
+	/* border: 1px solid blue; */
 	background-image: url(./assets/hero-image.png);
+	background-size: contain;
 	background-repeat: no-repeat;
 	background-position: center;
-	background-size: contain;
 }
 
 /*------------------------------------------------------------------------------------*/
-footer {
-	/* border: 1px solid indigo; */
-	grid-area: 3 / 1 / 3 / 3;
-}
