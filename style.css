@@ -3,8 +3,10 @@
 :root {
 	--bg-color: hsl(0, 0%, 17%);
 	--fg-p-color: hsl(0, 0%, 85%);
-	--fg-s-color: hsl(0, 100%, 40%);
-	--fg-s-shadow: hsl(0, 100%, 50%);
+	--fg-p-opaque: rgba(217, 217, 217, 0.2);
+	--fg-s-color: rgb(204, 0, 0);
+	--fg-s-opaque: rgba(204, 0, 0, 0.5);
+	--fg-s-shadow: rgb(255, 0, 0);
 
 	--ff-p: "Inter", sans-serif;
 
@@ -12,11 +14,46 @@
 }
 
 body {
+	height: 100svh;
 	padding: 5rem 0;
 	font-family: var(--ff-p);
 	background-color: var(--bg-color);
 	color: var(--fg-p-color);
 	overflow: hidden;
+}
+
+/*------------------------------------------------------------------------------------*/
+
+header {
+	/* border: 1px solid red; */
+	position: absolute;
+	top: 1rem;
+	right: 1rem;
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+}
+
+header::after {
+	content: "";
+	border-bottom: 1px solid var(--fg-p-opaque);
+	position: absolute;
+	top: 1.2rem;
+	right: -0.5rem;
+	width: 100%;
+}
+
+header .contact {
+	text-decoration: none;
+	color: var(--fg-p-color);
+	margin-left: 1rem;
+	font-size: 0.75rem;
+	transition: text-shadow 0.2s;
+}
+
+header .contact:hover {
+	text-shadow: 0 0 0.5vw var(--fg-s-shadow);
+	transition: text-shadow 0.2s;
 }
 
 /*------------------------------------------------------------------------------------*/
@@ -110,12 +147,13 @@ body {
 	text-decoration: none;
 	border-radius: 5%;
 	filter: var(--dp);
+	transition: text-shadow 0.2s;
 }
 
 .buttons .button:hover {
 	cursor: pointer;
-	color: #fff;
-	text-shadow: var(--fg-s-shadow);
+	text-shadow: 0 0 0.5vw var(--fg-s-shadow);
+	transition: text-shadow 0.2s;
 }
 
 /*------------------------------------------------------------------------------------*/
